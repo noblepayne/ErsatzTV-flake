@@ -28,7 +28,7 @@
         ...
       }: {
         imports = [./module.nix];
-        #config.services.ersatztv.package = self.packages.${pkgs.system}.default;
+        config.services.ersatztv.package = self.packages.${pkgs.system}.default;
       };
     };
   };

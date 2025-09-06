@@ -7,6 +7,8 @@
   ffmpeg-pkg ? ffmpeg-full,
   fontconfig,
   version ? "25.5.0",
+  which,
+  ...
 }:
 buildDotnetModule {
   pname = "ersatztv";
@@ -32,7 +34,7 @@ buildDotnetModule {
   '';
 
   # ffmpeg is required at runtime
-  makeWrapperArgs = ["--prefix" "PATH" ":" "${lib.makeBinPath [ffmpeg-pkg]}"];
+  makeWrapperArgs = ["--prefix" "PATH" ":" "${lib.makeBinPath [ffmpeg-pkg which]}"];
 
   executables = ["ErsatzTV" "ErsatzTV.Scanner"];
 
