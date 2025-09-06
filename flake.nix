@@ -7,12 +7,14 @@
     self,
     nixpkgs,
   }: let
-    forAllPkgs = fn: (builtins.mapAttrs (_: pkgs: (fn pkgs)) nixpkgs.legacyPackages);
+    supportedSystems = ["x86_64-linux" "aarch64-linux"];
+    pkgsBySystem = nixpkgs.lib.getAttrs supportedSystems nixpkgs.legacyPackages;
+    forAllPkgs = fn: nixpkgs.lib.mapAttrs (_: pkgs: (fn pkgs)) pkgsBySystem;
   in {
     formatter = forAllPkgs (pkgs: pkgs.alejandra);
     packages = forAllPkgs (pkgs: {
-      ersatz = pkgs.callPackage ./package.nix {};
-      default = self.packages.${pkgs.system}.ersatz;
+      ErsatzTV = pkgs.callPackage ./package.nix {};
+      default = self.packages.${pkgs.system}.ErsatzTV;
     });
   };
 }

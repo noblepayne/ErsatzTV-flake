@@ -3,12 +3,13 @@
   buildDotnetModule,
   dotnetCorePackages,
   fetchFromGitHub,
-  ffmpeg,
+  ffmpeg-full,
+  ffmpeg-pkg ? ffmpeg-full,
   fontconfig,
 }:
 buildDotnetModule rec {
-  pname = "ersatztv";
-  version = "25.5.0"; # sync with upstream release
+  pname = "ErsatzTV";
+  version = "25.5.0";
 
   src = fetchFromGitHub {
     owner = "ErsatzTV";
@@ -18,60 +19,25 @@ buildDotnetModule rec {
   };
 
   nugetDeps = ./deps.json;
+  projectFile = "./ErsatzTV/ErsatzTV.csproj";
+  buildType = "Release";
 
   dotnet-sdk = dotnetCorePackages.sdk_9_0;
-  #dotnet-runtime = dotnetCorePackages.runtime_9_0;
   dotnet-runtime = dotnetCorePackages.aspnetcore_9_0;
 
-  buildType = "Release";
-  selfContainedBuild = false;
-  projectFile = "${src}/ErsatzTV/ErsatzTV.csproj";
-  dontConfigure = true;
-
-  # don’t build tests or platform-specific projects
+  # Only installs jetbrains.resharper.globaltools which is not needed at runtime.
   postPatch = ''
-    rm -rf .config
-    #rm -rf ErsatzTV.*.Tests
-
-    # remove test projects from solution
-    #sed -i '/ErsatzTV.Core.Tests/d' ErsatzTV.sln
-    #sed -i '/ErsatzTV.FFmpeg.Tests/d' ErsatzTV.sln
-    #sed -i '/ErsatzTV.Infrastructure.Tests/d' ErsatzTV.sln
-    #sed -i '/ErsatzTV.Scanner.Tests/d' ErsatzTV.sln
+    rm -rf .config/dotnet-tools.json
   '';
 
-  buildPhase = ''
-    runHook preBuild
+  makeWrapperArgs = ["--prefix" "PATH" ":" "${lib.makeBinPath [ffmpeg-pkg]}"];
 
-    # restore offline
-    #dotnet restore ErsatzTV/ErsatzTV.csproj --packages ./_nix/restore --runtime linux-x64
-    #dotnet restore ErsatzTV.Scanner/ErsatzTV.Scanner.csproj --packages ./_nix/restore --runtime linux-x64
-
-    # publish projects
-    #dotnet publish ErsatzTV.Scanner/ErsatzTV.Scanner.csproj -c release -o build-out -r linux-x64 --self-contained false /p:DebugType=Embedded /p:InformationalVersion=${version}
-    #sed -i '/Scanner/d' ErsatzTV/ErsatzTV.csproj
-    dotnet publish ErsatzTV/ErsatzTV.csproj -c release -o build-out -r linux-x64 --self-contained false /p:DebugType=Embedded /p:InformationalVersion=${version}
-
-    runHook postBuild
-  '';
-
-  installPhase = ''
-    runHook preInstall
-    cp -rT build-out $out
-    mkdir -p $out/bin
-
-    wrapDotnetProgram $out/ErsatzTV $out/bin/ErsatzTV
-    wrapDotnetProgram $out/ErsatzTV.Scanner $out/bin/ErsatzTV.Scanner
-    runHook postInstall
-  '';
-
-  runtimeDeps = [ffmpeg fontconfig];
+  executables = ["ErsatzTV"];
 
   meta = with lib; {
-    description = "ErsatzTV – stream media as live TV channels";
+    description = "ErsatzTV – Stream custom live channels using your own media";
     homepage = "https://github.com/ErsatzTV/ErsatzTV";
-    license = licenses.gpl3Plus;
-    maintainers = with maintainers; []; # add yourself
+    license = licenses.zlib;
     platforms = platforms.linux;
     mainProgram = "ErsatzTV";
   };
