@@ -6,10 +6,11 @@
   ffmpeg-full,
   ffmpeg-pkg ? ffmpeg-full,
   fontconfig,
+  version ? "25.5.0",
 }:
-buildDotnetModule rec {
-  pname = "ErsatzTV";
-  version = "25.5.0";
+buildDotnetModule {
+  pname = "ersatztv";
+  inherit version;
 
   src = fetchFromGitHub {
     owner = "ErsatzTV";
@@ -25,17 +26,18 @@ buildDotnetModule rec {
   dotnet-sdk = dotnetCorePackages.sdk_9_0;
   dotnet-runtime = dotnetCorePackages.aspnetcore_9_0;
 
-  # Only installs jetbrains.resharper.globaltools which is not needed at runtime.
+  # remove dotnet-tools (jetbrains.resharper.globaltools); not needed at runtime as of v25.5.0
   postPatch = ''
     rm -rf .config/dotnet-tools.json
   '';
 
+  # ffmpeg is required at runtime
   makeWrapperArgs = ["--prefix" "PATH" ":" "${lib.makeBinPath [ffmpeg-pkg]}"];
 
-  executables = ["ErsatzTV"];
+  executables = ["ErsatzTV" "ErsatzTV.Scanner"];
 
   meta = with lib; {
-    description = "ErsatzTV – Stream custom live channels using your own media";
+    description = "Stream custom live channels using your own media";
     homepage = "https://github.com/ErsatzTV/ErsatzTV";
     license = licenses.zlib;
     platforms = platforms.linux;
