@@ -36,15 +36,30 @@ with lib; let
         default = 8409;
         description = "Port to listen for streaming connections. Default: 8409. Note: defaults to same as uiPort.";
       };
+      bindReadOnlyPaths = mkOption {
+        type = types.listOf types.str;
+        default = [];
+        description = ''
+          List of read-only bind mount paths in systemd format (source:target:options with target and options optional).
+
+          See https://www.freedesktop.org/software/systemd/man/latest/systemd.exec.html#BindPaths=
+        '';
+        example = literalExpression ''
+          [
+            "/home/user/Videos:/media/userVideos"
+            "/mnt/archive/tv:/media/tv"
+          ]
+        '';
+      };
       extraEnvironment = lib.mkOption {
         description = ''
           Environment variables to pass to ErsatzTV.
 
           See https://github.com/ErsatzTV/ErsatzTV/blob/main/ErsatzTV.Core/SystemEnvironment.cs
         '';
-        type = lib.types.attrsOf lib.types.str;
+        type = types.attrsOf lib.types.str;
         default = {};
-        example = lib.literalExpression ''
+        example = literalExpression ''
           {
             ETV_BASE_URL = "/myCustomErsatz";
           }
@@ -96,6 +111,7 @@ in {
         WorkingDirectory = "/var/lib/ersatztv";
         LockPersonality = true;
         NoNewPrivileges = true;
+        BindReadOnlyPaths = cfg.bindReadOnlyPaths;
       };
     };
   };

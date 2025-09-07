@@ -1,11 +1,11 @@
 {
-  lib,
   buildDotnetModule,
   dotnetCorePackages,
   fetchFromGitHub,
   ffmpeg-full,
   ffmpeg-pkg ? ffmpeg-full,
   fontconfig,
+  lib,
   version ? "25.5.0",
   which,
   ...
@@ -33,7 +33,7 @@ buildDotnetModule {
     rm -rf .config/dotnet-tools.json
   '';
 
-  # ffmpeg is required at runtime
+  # ffmpeg and which are required at runtime
   makeWrapperArgs = ["--prefix" "PATH" ":" "${lib.makeBinPath [ffmpeg-pkg which]}"];
 
   executables = ["ErsatzTV" "ErsatzTV.Scanner"];
