@@ -6,7 +6,7 @@
   ffmpeg-pkg ? ffmpeg-full,
   fontconfig,
   lib,
-  version ? "25.5.0",
+  version ? "25.6.0",
   which,
   ...
 }:
@@ -18,7 +18,7 @@ buildDotnetModule {
     owner = "ErsatzTV";
     repo = "ErsatzTV";
     rev = "v${version}";
-    hash = "sha256-Q9ugAqEjH6CWyOCmC2bxXsF460sb3eyzHwvvz8lm3Qk=";
+    hash = "sha256-pxo+RGpXVQUwYwp/POje4en6c9vfMYBO1ZNnZwt2DVM=";
   };
 
   nugetDeps = ./deps.json;

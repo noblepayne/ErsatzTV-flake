@@ -75,3 +75,15 @@ Learn more at [ersatztv.org](https://ersatztv.org).
 
 * **ersatztv-flake** is licensed under the [MIT License](LICENSE).
 * **ErsatzTV** is licensed under the [zlib License](https://github.com/ErsatzTV/ErsatzTV/blob/main/LICENSE).
+
+## TODO:
+- Investigate [Scripted Schedules api client](https://github.com/ErsatzTV/ErsatzTV/blob/main/docker/Dockerfile#L11-L18)
+- Investigate custom ffmpeg and other options for acceleration
+- Passthru update script
+
+## Updating nuget deps:
+You'll need nix installed, then run
+
+```sh
+./update-deps.sh
+```
