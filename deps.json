@@ -40,6 +40,11 @@
     "hash": "sha256-3y+lkqv/wuffN8ahokjLSCEllmExv84L3v3na9QXDg4="
   },
   {
+    "pname": "BlazorSortable",
+    "version": "4.0.0",
+    "hash": "sha256-uDcmi756u9AVaAzC5aeCib4u+1byJJAQJ99zUVOHHXQ="
+  },
+  {
     "pname": "Blurhash.Core",
     "version": "2.0.0",
     "hash": "sha256-bW3LTDPOZ2ktf4uli+k9umJeA00grHlX5ZEslPcsTFc="
@@ -116,8 +121,8 @@
   },
   {
     "pname": "Elastic.Clients.Elasticsearch",
-    "version": "9.1.7",
-    "hash": "sha256-WtX3IpCbvLYyOjdg+oMW5iDKA7tvtspF0s5e/+eoL7U="
+    "version": "9.1.9",
+    "hash": "sha256-LWfBwVAFdSFuJJjWc5Mr15ynFGYWRI4sFl0LVncvR/o="
   },
   {
     "pname": "Elastic.Transport",
@@ -151,8 +156,8 @@
   },
   {
     "pname": "Hardware.Info",
-    "version": "101.0.1.1",
-    "hash": "sha256-Bjztcg1xtZFL+3BafHAS1PWelDLc1XTQjeyr69pO7dA="
+    "version": "101.1.0",
+    "hash": "sha256-kVOIbxKjjt5BGGAC5x697DTDp3bhhtrnUTDZOqsWTCc="
   },
   {
     "pname": "HarfBuzzSharp",
@@ -213,6 +218,11 @@
     "pname": "LanguageExt.Transformers",
     "version": "4.4.8",
     "hash": "sha256-uiLMjgttFQJEgh4OUHBQUWxXEgpgHNAB29cjY77SMug="
+  },
+  {
+    "pname": "Lennox.NvEncSharp",
+    "version": "2.0.0",
+    "hash": "sha256-r37R6ap9KaKPZyZaahQZ7f2lNoKhb1glCqEmM06WfXs="
   },
   {
     "pname": "Lucene.Net",
@@ -313,6 +323,11 @@
     "pname": "Microsoft.AspNetCore.Components.Forms",
     "version": "9.0.1",
     "hash": "sha256-R1ZbsMvlu0QL4XUvdg56GJ0ipCwg8NJCpgChR3eVG0o="
+  },
+  {
+    "pname": "Microsoft.AspNetCore.Components.Web",
+    "version": "8.0.0",
+    "hash": "sha256-dsCb4B6r5iHPbEp8+uFzAfD1txGI5dEIWgwtT9+GgU8="
   },
   {
     "pname": "Microsoft.AspNetCore.Components.Web",
@@ -1011,8 +1026,8 @@
   },
   {
     "pname": "MudBlazor",
-    "version": "8.12.0",
-    "hash": "sha256-Jngbq+grqYqp53ot/g3EiFaEQCp3CCzFM9WywU/ARwM="
+    "version": "8.13.0",
+    "hash": "sha256-gBVfGt6wHgJmeN0vE0y7Ij+8CAq4aQNI43xiC8S0c6I="
   },
   {
     "pname": "MySqlConnector",
@@ -1021,18 +1036,18 @@
   },
   {
     "pname": "NaturalSort.Extension",
-    "version": "4.3.0",
-    "hash": "sha256-bYhxTIhdWlpHUh2PT/kGwOoBGgshIORumXIhlvbfWIc="
+    "version": "4.4.0",
+    "hash": "sha256-zLZLY2ONesj58plElgK00aRq0g+RHgp6f6vGrt6dUtc="
   },
   {
     "pname": "NCalc.Core",
-    "version": "5.6.0",
-    "hash": "sha256-WfwWbj90J6LoonHQgBDX8NFBpkgLwB8yBkaKYVWYVWU="
+    "version": "5.7.0",
+    "hash": "sha256-KjtUpx/2n/mN8iashgosKMZ59vE3V+iLnuj2IcgNWf8="
   },
   {
     "pname": "NCalcSync",
-    "version": "5.6.0",
-    "hash": "sha256-/455GZ/GFhYAJCV0t4SW9hFVRrO8h704DOGhHNYsqr4="
+    "version": "5.7.0",
+    "hash": "sha256-C2sUHYUpn4g1vR2Lhi50CFic/QDnU/KJHX2UMf1yGIg="
   },
   {
     "pname": "NETStandard.Library",
@@ -1068,6 +1083,11 @@
     "pname": "Newtonsoft.Json",
     "version": "13.0.3",
     "hash": "sha256-hy/BieY4qxBWVVsDqqOPaLy1QobiIapkbrESm6v2PHc="
+  },
+  {
+    "pname": "Newtonsoft.Json",
+    "version": "13.0.4",
+    "hash": "sha256-8JCB1FdAW681qXP6DFDWvycu1oPyVoxaYgpJ2pUvZSk="
   },
   {
     "pname": "Newtonsoft.Json.Bson",
@@ -1346,13 +1366,13 @@
   },
   {
     "pname": "Scalar.AspNetCore",
-    "version": "2.8.1",
-    "hash": "sha256-vgkOKIHbaCH2EWfQa/2rB0xZUosLcf+md1dGkZZV1e0="
+    "version": "2.8.10",
+    "hash": "sha256-8b8Tzmxk2vy/sT2p2dKaKoVtM4H0LjzK46odN+RCvSg="
   },
   {
     "pname": "Scriban.Signed",
-    "version": "6.3.0",
-    "hash": "sha256-Ycl9PhrImmDF6kQMlXsOa1eucQg30hnFb88Ju5Wy08A="
+    "version": "6.4.0",
+    "hash": "sha256-DDXaTurUONBBG289NI2IYCyalDDFV9hlJo9McoCrBWQ="
   },
   {
     "pname": "Serilog",
@@ -1436,8 +1456,8 @@
   },
   {
     "pname": "SkiaSharp",
-    "version": "3.119.0",
-    "hash": "sha256-G6T0E4Wl9NW9m/9HW1Rppuxs5icp04uvqkY+Ju/vvzM="
+    "version": "3.119.1",
+    "hash": "sha256-TIVr52NpQ9cab5eJCcH/OYHjNOTKhwCqpClK2c8S4TM="
   },
   {
     "pname": "SkiaSharp.HarfBuzz",
@@ -1451,18 +1471,18 @@
   },
   {
     "pname": "SkiaSharp.NativeAssets.Linux.NoDependencies",
-    "version": "3.119.0",
-    "hash": "sha256-oiuAhBcXh5x49ABBQktwA1CkP8LCRxa/WZBW5PuDeyg="
+    "version": "3.119.1",
+    "hash": "sha256-SprThyApThbDoeTn/JaaS7TKdm9SkMoVO8V8HuCyppI="
   },
   {
     "pname": "SkiaSharp.NativeAssets.macOS",
-    "version": "3.119.0",
-    "hash": "sha256-BPkQ5hSDK4Nal36+31AAApEbDH+FdwZik5W22vYmVDI="
+    "version": "3.119.1",
+    "hash": "sha256-0QJGcO91MWLSeQpE4ZNn/KUVoHRcrPeDbKklxCVB00o="
   },
   {
     "pname": "SkiaSharp.NativeAssets.Win32",
-    "version": "3.119.0",
-    "hash": "sha256-YltsBRADV7b3qL3/YrgG2GTwJr8PL1STeaimQagSADo="
+    "version": "3.119.1",
+    "hash": "sha256-ySPkn8SrShOqhihC33EJ4HJt9desDISC4gAI4FQBi2U="
   },
   {
     "pname": "SQLitePCLRaw.bundle_e_sqlite3",
