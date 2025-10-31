@@ -6,10 +6,10 @@
   ffmpeg-full,
   ffmpeg-pkg ? ffmpeg-full,
   fontconfig,
-  hash ? "sha256-tCMUjfdk1TEnRD5yjc3GDStoV6uCGhw6e30wNYS8F90=",
+  hash ? "sha256-FuuX/SxhzzUn7ELJDXJuILkl3ubR3V+5hQwILvZZrFg=",
   lib,
   libva-utils,
-  version ? "25.7.1",
+  version ? "25.8.0",
   which,
   withVAAPI ? true,
   ...
